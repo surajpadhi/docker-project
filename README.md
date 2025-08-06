@@ -25,10 +25,12 @@ cd your-repo-name
 2. Generate .htpasswd
 Create this file in nginx/ for Nginx auth (e.g., admin:your_password).
 
-cd nginx/
+```
+cd nginx/ 
 sudo yum install -y httpd-tools
 htpasswd -c .htpasswd admin # Enter password
 cd ..
+```
 
 3. Build & Run
 docker-compose up --build -d
