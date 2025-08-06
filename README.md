@@ -24,8 +24,8 @@ Follow these steps on your EC2 instance:
 
 1. Clone Repository
 ```
-git clone https://github.com/surajpadhi/my-docker-project.git
-cd your-repo-name
+git clone https://github.com/surajpadhi/docker-project.git
+cd docker-project
 ```
 
 2. Generate .htpasswd
