@@ -13,24 +13,34 @@ Round-robin load balancing
 Basic authentication
 
 Prerequisites
-Docker, Docker Compose, and httpd-tools on Red Hat EC2 instance.
+Docker, Docker Compose, and httpd-tools on your Red Hat EC2 instance.
+
+Project Structure
+.
+├── app/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── nginx/
+│   ├── nginx.conf
+│   └── .htpasswd
+├── docker-compose.yml
+└── README.md
 
 Deployment Steps
 Follow these steps on your EC2 instance:
 
 1. Clone Repository
-git clone https://github.com/surajpadhi/my-docker-project.git
+git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 
 2. Generate .htpasswd
 Create this file in nginx/ for Nginx auth (e.g., admin:your_password).
 
-```
-cd nginx/ 
+cd nginx/
 sudo yum install -y httpd-tools
 htpasswd -c .htpasswd admin # Enter password
 cd ..
-```
 
 3. Build & Run
 docker-compose up --build -d
@@ -68,3 +78,6 @@ Cannot access: Check EC2 Security Group (port 8080), Nginx container status, Ngi
 Auth/Rate Limit issues: Verify nginx.conf, .htpasswd.
 
 Python not responding: Check Python service logs.
+
+Future Enhancements
+HTTPS, health checks, advanced load balancing, logging, monitoring, secrets management, CI/CD.
