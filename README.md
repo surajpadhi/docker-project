@@ -1,7 +1,9 @@
 Dockerized Python Service with Nginx
+
 This project deploys a simple Python Flask app using Docker Compose, with Nginx for load balancing, rate limiting, and basic authentication.
 
-Features
+Features:
+
 Two Python service instances
 
 Nginx reverse proxy (port 8080)
@@ -12,10 +14,12 @@ Round-robin load balancing
 
 Basic authentication
 
-Prerequisites
+Prerequisites:
+
 Docker, Docker Compose, and httpd-tools on Red Hat EC2 instance.
 
 Deployment Steps
+
 Follow these steps on your EC2 instance:
 
 1. Clone Repository
@@ -74,7 +78,8 @@ Stop & Remove
 docker-compose down
 docker-compose down --rmi all
 ```
-Troubleshooting
+Troubleshooting:
+
 docker-compose up fails: Check Docker status, user permissions, YAML syntax.
 
 Cannot access: Check EC2 Security Group (port 8080), Nginx container status, Nginx logs.
