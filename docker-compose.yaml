@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  python_service_1:
+    build: ./app
+    container_name: python_app_1
+    restart: always
+    environment:
+      INSTANCE_ID: "instance-1"
+    expose:
+      - "5000"
+
+  python_service_2:
+    build: ./app
+    container_name: python_app_2
+    restart: always
+    environment:
+      INSTANCE_ID: "instance-2"
+    expose:
+      - "5000"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/.htpasswd:/etc/nginx/.htpasswd:ro
+    depends_on:
+      - python_service_1
+      - python_service_2
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
